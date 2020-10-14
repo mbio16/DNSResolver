@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+   <children>
+      <Pane layoutX="25.0" layoutY="14.0" prefHeight="60.0" prefWidth="550.0" style="-fx-background-color: #929D9E;">
+         <children>
+            <Group layoutX="316.0" layoutY="18.0">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../czech-republic.png" />
+                     </image>
+                  </ImageView>
+                  <RadioButton layoutY="4.0" mnemonicParsing="false" selected="true" />
+               </children>
+            </Group>
+            <Group layoutX="201.0" layoutY="18.0">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../united-kingdom.png" />
+                     </image>
+                  </ImageView>
+                  <RadioButton layoutY="4.0" mnemonicParsing="false" />
+               </children>
+            </Group>
+         </children>
+      </Pane>
+      <Pane layoutX="25.0" layoutY="93.0" prefHeight="295.0" prefWidth="150.0" style="-fx-background-color: #7F8688;">
+         <children>
+            <Label layoutX="7.0" layoutY="6.0" prefHeight="17.0" prefWidth="104.0" text="Základní DNS" textAlignment="CENTER" textFill="WHITE" />
+            <Button layoutX="39.0" layoutY="65.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="DNS">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="225.0" layoutY="93.0" prefHeight="295.0" prefWidth="150.0" style="-fx-background-color: #7F8688;">
+         <children>
+            <Label layoutX="11.0" layoutY="6.0" prefHeight="17.0" prefWidth="135.0" text="DNS přes multicast" textFill="WHITE" />
+            <Button layoutX="39.0" layoutY="62.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="LLMR">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="39.0" layoutY="128.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="mDNS">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="425.0" layoutY="93.0" prefHeight="295.0" prefWidth="150.0" style="-fx-background-color: #7F8688;">
+         <children>
+            <Label layoutX="8.0" layoutY="6.0" prefHeight="17.0" prefWidth="142.0" text="Šifrovaný DNS" textAlignment="CENTER" textFill="WHITE" />
+            <Button layoutX="39.0" layoutY="62.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="DoH">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="39.0" layoutY="128.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="DoT">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
