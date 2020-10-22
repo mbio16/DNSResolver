@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainController">
    <children>
       <Pane layoutX="25.0" layoutY="14.0" prefHeight="60.0" prefWidth="550.0" style="-fx-background-color: #929D9E;">
          <children>
@@ -22,7 +21,7 @@
                         <Image url="@../../czech-republic.png" />
                      </image>
                   </ImageView>
-                  <RadioButton layoutY="4.0" mnemonicParsing="false" selected="true" />
+                  <RadioButton fx:id="czechLangRadioButton" layoutY="4.0" mnemonicParsing="false" onAction="#languageChanged" selected="true" />
                </children>
             </Group>
             <Group layoutX="201.0" layoutY="18.0">
@@ -32,15 +31,15 @@
                         <Image url="@../../united-kingdom.png" />
                      </image>
                   </ImageView>
-                  <RadioButton layoutY="4.0" mnemonicParsing="false" />
+                  <RadioButton fx:id="englishLangRadioButton" layoutY="4.0" mnemonicParsing="false" onAction="#languageChanged" />
                </children>
             </Group>
          </children>
       </Pane>
       <Pane layoutX="25.0" layoutY="93.0" prefHeight="295.0" prefWidth="150.0" style="-fx-background-color: #7F8688;">
          <children>
-            <Label layoutX="7.0" layoutY="6.0" prefHeight="17.0" prefWidth="104.0" text="Základní DNS" textAlignment="CENTER" textFill="WHITE" />
-            <Button layoutX="39.0" layoutY="65.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="DNS">
+            <Label fx:id="basicDNSLabel" layoutX="7.0" layoutY="6.0" prefHeight="17.0" prefWidth="104.0" text="Základní DNS" textAlignment="CENTER" textFill="WHITE" />
+            <Button fx:id="dnsButton" layoutX="39.0" layoutY="65.0" mnemonicParsing="false" onAction="#buttonFirred" prefHeight="40.0" prefWidth="72.0" text="DNS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -49,13 +48,13 @@
       </Pane>
       <Pane layoutX="225.0" layoutY="93.0" prefHeight="295.0" prefWidth="150.0" style="-fx-background-color: #7F8688;">
          <children>
-            <Label layoutX="11.0" layoutY="6.0" prefHeight="17.0" prefWidth="135.0" text="DNS přes multicast" textFill="WHITE" />
-            <Button layoutX="39.0" layoutY="62.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="LLMR">
+            <Label fx:id="multicastDNSLabel" layoutX="11.0" layoutY="6.0" prefHeight="17.0" prefWidth="135.0" text="DNS přes multicast" textFill="WHITE" />
+            <Button fx:id="llmrButton" layoutX="39.0" layoutY="62.0" mnemonicParsing="false" onAction="#buttonFirred" prefHeight="40.0" prefWidth="72.0" text="LLMR">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="39.0" layoutY="128.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="mDNS">
+            <Button fx:id="mdnsButton" layoutX="39.0" layoutY="128.0" mnemonicParsing="false" onAction="#buttonFirred" prefHeight="40.0" prefWidth="72.0" text="mDNS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -64,13 +63,13 @@
       </Pane>
       <Pane layoutX="425.0" layoutY="93.0" prefHeight="295.0" prefWidth="150.0" style="-fx-background-color: #7F8688;">
          <children>
-            <Label layoutX="8.0" layoutY="6.0" prefHeight="17.0" prefWidth="142.0" text="Šifrovaný DNS" textAlignment="CENTER" textFill="WHITE" />
-            <Button layoutX="39.0" layoutY="62.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="DoH">
+            <Label fx:id="encryptedDNSLabel" layoutX="8.0" layoutY="6.0" prefHeight="17.0" prefWidth="142.0" text="Šifrovaný DNS" textAlignment="CENTER" textFill="WHITE" />
+            <Button fx:id="dohButton" layoutX="39.0" layoutY="62.0" mnemonicParsing="false" onAction="#buttonFirred" prefHeight="40.0" prefWidth="72.0" text="DoH">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="39.0" layoutY="128.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="72.0" text="DoT">
+            <Button fx:id="dotButton" layoutX="39.0" layoutY="128.0" mnemonicParsing="false" onAction="#buttonFirred" prefHeight="40.0" prefWidth="72.0" text="DoT">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
