@@ -1,10 +1,5 @@
 package ui;
 
-
-
-import java.io.IOException;
-import java.util.Stack;
-
 import application.Language;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -80,7 +75,7 @@ public class MainController {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml_file));
 				Stage newStage = new Stage();
 				newStage.setScene(new Scene(loader.load()));
-				GeneralController controller= (GeneralController) loader.getController();
+				GeneralController controller = (GeneralController) loader.getController();
 				controller.setLanguage(language);
 				newStage.show();
 				Stage mainStage = (Stage) dnsButton.getScene().getWindow();
