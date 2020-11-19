@@ -1,4 +1,4 @@
-# DNSResolver
+# DNSClient
 GUI for DNS Client
 
 
