@@ -13,8 +13,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import models.Settings;
 
-public class MainController {
+public class MainController extends GeneralController {
 	// FXML Components
 	// language radio buttons
 	@FXML private RadioButton englishLangRadioButton;
@@ -38,14 +39,11 @@ public class MainController {
 	
 	private ToggleGroup languagegroup;
 	
-	private Language language;
-	
 	public static final String FXML_FILE_NAME="Main.fxml";
 	
 	public void initialize() {
-		// setup language group
-		language = new Language();
-		language.changeLanguageBundle(true);
+		
+		//setup toogle group
 		languagegroup= new ToggleGroup();
 		czechLangRadioButton.setToggleGroup(languagegroup);
 		englishLangRadioButton.setToggleGroup(languagegroup);	
@@ -94,4 +92,7 @@ public class MainController {
 		alert.showAndWait();
 	}
 	
+	public void setSettings(Settings settings) {
+		this.settings = settings;
+	}
 }
