@@ -9,22 +9,67 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class DNSController extends GeneralController {
 	
 	public static final String FXML_FILE_NAME="DNS.fxml";
-	
+	//menu items
 	@FXML private Menu actionMenu;
 	@FXML private MenuItem backMenuItem;
 	@FXML private Menu languageMenu;
 	@FXML private RadioMenuItem czechRadioButton;
 	@FXML private RadioMenuItem englishRadioButton;
+	
+	//butons
 	@FXML private Button sendButton;
+	
+	//text fields
+	@FXML private TextField domainNameTextField;
+	@FXML private TextField dnsServerTextField;
+	
+	//radio buttons
+	@FXML private RadioButton ipv4RadioButton;
+	@FXML private RadioButton ipv6RadioButton;
+	@FXML private RadioButton tcpRadioButton;
+	@FXML private RadioButton udpRadioButton;
+	@FXML private RadioButton dnssecYesRadioButton;
+	@FXML private RadioButton dnssecNoRadioButton;
+	@FXML private RadioButton recursiveQueryRadioButton;
+	@FXML private RadioButton iterativeQueryRadioButton;
+	@FXML private RadioButton cloudflareIpv4RadioButton;
+	@FXML private RadioButton googleIpv4RadioButton;
+	@FXML private RadioButton cznicIpv4RadioButton;
+	@FXML private RadioButton cloudflareIpv6RadioButton;
+	@FXML private RadioButton googleIpv6RadioButton;
+	@FXML private RadioButton cznicIpv6RadioButton;
+	@FXML private RadioButton otherDNSServerRadioButton;
+	
+	//checkboxes
+	@FXML private CheckBox aCheckBox;
+	@FXML private CheckBox aaaaCheckBox;
+	@FXML private CheckBox nsCheckBox;
+	@FXML private CheckBox mxCheckBox;
+	@FXML private CheckBox soaCheckBox;
+	@FXML private CheckBox cnameCheckBox;
+	@FXML private CheckBox ptrCheckBox;
+	
+	//titledpaned
+	
+	@FXML private TitledPane domainNameTitledPane;
+	@FXML private TitledPane ipTitledPane;
+	@FXML private TitledPane recordTitledPane;
+	@FXML private TitledPane dnssecTitledPane;
+	@FXML private TitledPane recordTypeTitledPane;
+	@FXML private TitledPane dnsServerTittledPane;
 	
 	public DNSController() {
 		super();
@@ -56,7 +101,7 @@ public class DNSController extends GeneralController {
 				controller.setLanguage(language);
 				controller.setSettings(settings);
 				newStage.show();
-				Stage mainStage = (Stage) b.getScene().getWindow();
+				Stage mainStage = (Stage) sendButton.getScene().getWindow();
 				mainStage.close();
 				controller.setLabels();
  		}		
