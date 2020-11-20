@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import models.Settings;
 import ui.GeneralController;
-import ui.MainController;
 import javafx.scene.Scene;
 
 

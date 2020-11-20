@@ -37,11 +37,11 @@
    <center>
       <AnchorPane prefHeight="766.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <TitledPane animated="false" layoutX="25.0" layoutY="27.0" text="Doménové jméno">
+            <TitledPane fx:id="domainNameTitledPane" animated="false" layoutX="25.0" layoutY="27.0" text="Doménové jméno">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="66.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="12.0" layoutY="18.0" prefHeight="25.0" prefWidth="177.0">
+                        <TextField fx:id="domainNameTextField" layoutX="12.0" layoutY="18.0" prefHeight="25.0" prefWidth="177.0">
                            <font>
                               <Font size="14.0" />
                            </font></TextField>
@@ -49,7 +49,7 @@
                   </AnchorPane>
               </content>
             </TitledPane>
-            <TitledPane animated="false" layoutX="25.0" layoutY="129.0" prefHeight="103.0" prefWidth="202.0" text="Protokol síťové vrstvy">
+            <TitledPane fx:id="ipTitledPane" animated="false" layoutX="25.0" layoutY="129.0" prefHeight="103.0" prefWidth="202.0" text="Protokol síťové vrstvy">
                <content>
                   <GridPane>
                     <columnConstraints>
@@ -60,12 +60,12 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <RadioButton mnemonicParsing="false" text="IPv4">
+                        <RadioButton fx:id="ipv4RadioButton" mnemonicParsing="false" text="IPv4">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="IPv6" GridPane.rowIndex="1">
+                        <RadioButton fx:id="ipv6RadioButton" mnemonicParsing="false" text="IPv6" GridPane.rowIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -74,7 +74,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane animated="false" layoutX="25.0" layoutY="351.0" prefHeight="252.0" prefWidth="202.0" text="Záznam">
+            <TitledPane fx:id="recordTypeTitledPane" animated="false" layoutX="25.0" layoutY="351.0" prefHeight="252.0" prefWidth="202.0" text="Záznam">
                <content>
                   <GridPane prefHeight="232.0" prefWidth="200.0">
                     <columnConstraints>
@@ -91,37 +91,37 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <CheckBox mnemonicParsing="false" text="AAAA" GridPane.rowIndex="1">
+                        <CheckBox fx:id="aaaaCheckBox" mnemonicParsing="false" text="AAAA" GridPane.rowIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="A">
+                        <CheckBox fx:id="aCheckBox" mnemonicParsing="false" text="A">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="NS" GridPane.rowIndex="2">
+                        <CheckBox fx:id="nsCheckBox" mnemonicParsing="false" text="NS" GridPane.rowIndex="2">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="MX" GridPane.rowIndex="3">
+                        <CheckBox fx:id="mxCheckBox" mnemonicParsing="false" text="MX" GridPane.rowIndex="3">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="SOA" GridPane.rowIndex="4">
+                        <CheckBox fx:id="soaCheckBox" mnemonicParsing="false" text="SOA" GridPane.rowIndex="4">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="CNAME" GridPane.rowIndex="5">
+                        <CheckBox fx:id="cnameCheckBox" mnemonicParsing="false" text="CNAME" GridPane.rowIndex="5">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="PTR" GridPane.rowIndex="6">
+                        <CheckBox fx:id="ptrCheckBox" mnemonicParsing="false" text="PTR" GridPane.rowIndex="6">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -130,7 +130,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane animated="false" layoutX="244.0" layoutY="27.0" prefHeight="310.0" prefWidth="284.0" text="DNS server">
+            <TitledPane fx:id="dnsServerTitledPane" animated="false" layoutX="244.0" layoutY="27.0" prefHeight="310.0" prefWidth="284.0" text="DNS server">
                <content>
                   <GridPane>
                     <columnConstraints>
@@ -146,27 +146,27 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <RadioButton mnemonicParsing="false" text="1.1.1.1 (Cloudflare)">
+                        <RadioButton fx:id="cloudflareIpv4RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="1.1.1.1 (Cloudflare)">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton mnemonicParsing="false" text="8.8.8.8 (Google)" GridPane.rowIndex="1">
+                        <RadioButton fx:id="googleIpv4RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="8.8.8.8 (Google)" GridPane.rowIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton mnemonicParsing="false" text="193.17.47.1 (CZ.NIC)" GridPane.rowIndex="2">
+                        <RadioButton fx:id="cznicIpv4RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="193.17.47.1 (CZ.NIC)" GridPane.rowIndex="2">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton mnemonicParsing="false" text="2606:4700:4700::1111 (Cloudflare)" GridPane.rowIndex="3">
+                        <RadioButton fx:id="cloudflareIpv6RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="2606:4700:4700::1111 (Cloudflare)" GridPane.rowIndex="3">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton mnemonicParsing="false" text="2001:4860:4860::8888 (Google)" GridPane.rowIndex="4">
+                        <RadioButton fx:id="googleIpv6RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="2001:4860:4860::8888 (Google)" GridPane.rowIndex="4">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton mnemonicParsing="false" text="2001:148f:ffff::1 (CZ.NIC)" GridPane.rowIndex="5">
+                        <RadioButton fx:id="cznicIpv6RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="2001:148f:ffff::1 (CZ.NIC)" GridPane.rowIndex="5">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
@@ -179,12 +179,12 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <RadioButton mnemonicParsing="false">
+                              <RadioButton fx:id="otherDNSServerRadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </RadioButton>
-                              <TextField disable="true" prefHeight="29.0" prefWidth="233.0" GridPane.columnIndex="1">
+                              <TextField fx:id="dnsServerTextField" disable="true" prefHeight="29.0" prefWidth="233.0" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -195,7 +195,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane animated="false" layoutX="25.0" layoutY="240.0" prefHeight="103.0" prefWidth="202.0" text="Protokol transportní vrstvy">
+            <TitledPane fx:id="transportTitledPane" animated="false" layoutX="25.0" layoutY="240.0" prefHeight="103.0" prefWidth="202.0" text="Protokol transportní vrstvy">
                <content>
                   <GridPane>
                      <columnConstraints>
@@ -206,12 +206,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <RadioButton mnemonicParsing="false" text="UDP">
+                        <RadioButton fx:id="udpRadioButton" mnemonicParsing="false" text="UDP">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="TCP" GridPane.rowIndex="1">
+                        <RadioButton fx:id="tcpRadioButton" mnemonicParsing="false" text="TCP" GridPane.rowIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -220,7 +220,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane animated="false" layoutX="25.0" layoutY="612.0" prefHeight="98.0" prefWidth="202.0" text="DNSSEC">
+            <TitledPane fx:id="dnssecTitledPane" animated="false" layoutX="25.0" layoutY="612.0" prefHeight="98.0" prefWidth="202.0" text="DNSSEC">
                <content>
                   <GridPane prefHeight="67.0" prefWidth="200.0">
                      <columnConstraints>
@@ -232,12 +232,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <RadioButton mnemonicParsing="false" text="Ano">
+                        <RadioButton fx:id="dnssecYesRadioButton" mnemonicParsing="false" text="Ano">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Ne" GridPane.rowIndex="1">
+                        <RadioButton fx:id="dnssecNoRadioButton" mnemonicParsing="false" text="Ne" GridPane.rowIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -246,7 +246,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane animated="false" layoutX="25.0" layoutY="719.0" prefHeight="98.0" prefWidth="202.0" text="Druh dotazu">
+            <TitledPane fx:id="iterativeTitledPane" animated="false" layoutX="25.0" layoutY="719.0" prefHeight="98.0" prefWidth="202.0" text="Druh dotazu">
                <content>
                   <GridPane prefHeight="67.0" prefWidth="200.0">
                      <columnConstraints>
@@ -258,12 +258,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <RadioButton mnemonicParsing="false" text="Rekurzivní">
+                        <RadioButton fx:id="recursiveQueryRadioButton" mnemonicParsing="false" text="Rekurzivní">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Iterativní" GridPane.rowIndex="1">
+                        <RadioButton fx:id="iterativeQueryRadioButton" mnemonicParsing="false" text="Iterativní" GridPane.rowIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -272,7 +272,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <Button layoutX="244.0" layoutY="364.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="285.0" text="Odeslat">
+            <Button fx:id="sendButton" layoutX="244.0" layoutY="364.0" mnemonicParsing="false" onAction="#sendButtonFired" prefHeight="88.0" prefWidth="285.0" text="Odeslat">
                <font>
                   <Font size="25.0" />
                </font>

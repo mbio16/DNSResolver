@@ -38,4 +38,8 @@ public class GeneralController {
 	public void setLabels() {
 		//To be overrited
 	}
+	
+	public void loadDataFromSettings() {
+		//to be overrited
+	}
 }

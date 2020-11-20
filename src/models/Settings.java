@@ -15,7 +15,6 @@ import javax.swing.filechooser.FileSystemView;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import ui.DNSController;
 
 
 
@@ -93,6 +92,6 @@ public class Settings {
 	public void appIsClossing() {
 		file.delete();
 		checkIfFileExistsOrCreate();
-		LOGGER.info("Settings writen in file");
+		LOGGER.info("Setting written in file");
 	}
 }

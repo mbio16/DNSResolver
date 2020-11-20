@@ -67,7 +67,6 @@ public class MainController extends GeneralController {
 			fxml_file = MDNSController.FXML_FILE_NAME;
 		}
 		try {
-				System.out.println(fxml_file);
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml_file));
 				Stage newStage = new Stage();
 				newStage.setScene(new Scene(loader.load()));
@@ -78,6 +77,7 @@ public class MainController extends GeneralController {
 				Stage mainStage = (Stage) dnsButton.getScene().getWindow();
 				mainStage.close();
 				controller.setLabels();
+				controller.loadDataFromSettings();
  		}		
 		catch (Exception e) {
 			LOGGER.severe("Could not open new window:" + e.toString());
