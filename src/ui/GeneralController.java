@@ -1,5 +1,7 @@
 package ui;
 
+import java.util.logging.Logger;
+
 import application.Language;
 import models.Settings;
 
@@ -9,8 +11,7 @@ public class GeneralController {
 	
 	protected Settings settings;
 	
-
-	
+	protected Logger LOGGER;
 	public Settings getSettings() {
 		return settings;
 	}
@@ -32,5 +33,9 @@ public class GeneralController {
 	public void setLanguage(Language language) {
 		this.language = language;
 		//System.out.println("Language load to another window");
+	}
+
+	public void setLabels() {
+		//To be overrited
 	}
 }

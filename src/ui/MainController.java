@@ -1,6 +1,7 @@
 package ui;
 
-import application.Language;
+import java.util.logging.Logger;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,12 +37,15 @@ public class MainController extends GeneralController {
 	@FXML private ImageView mdnsButtonHelp;
 	@FXML private ImageView dohButtonHelp;
 	@FXML private ImageView dotButtonHelp;
+
 	
-	private ToggleGroup languagegroup;
-	
+ 	private ToggleGroup languagegroup;
+ 	
 	public static final String FXML_FILE_NAME="Main.fxml";
-	
 	public void initialize() {
+		
+		//
+		LOGGER = Logger.getLogger(DNSController.class.getName());
 		
 		//setup toogle group
 		languagegroup= new ToggleGroup();
@@ -49,15 +53,9 @@ public class MainController extends GeneralController {
 		englishLangRadioButton.setToggleGroup(languagegroup);	
 	}
 	
-		
-
-
-
 	@FXML private void languageChanged(ActionEvent event) {
 		language.changeLanguageBundle(czechLangRadioButton.isSelected());
-		basicDNSLabel.setText(language.getLanguageBundle().getString(basicDNSLabel.getId()));
-		multicastDNSLabel.setText(language.getLanguageBundle().getString(multicastDNSLabel.getId()));
-		encryptedDNSLabel.setText(language.getLanguageBundle().getString(encryptedDNSLabel.getId()));
+		setLabels();
 	}
 	
 	@FXML private void definedButtonFired(ActionEvent event) {
@@ -75,12 +73,14 @@ public class MainController extends GeneralController {
 				newStage.setScene(new Scene(loader.load()));
 				GeneralController controller = (GeneralController) loader.getController();
 				controller.setLanguage(language);
+				controller.setSettings(settings);
 				newStage.show();
 				Stage mainStage = (Stage) dnsButton.getScene().getWindow();
 				mainStage.close();
+				controller.setLabels();
  		}		
 		catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.severe("Could not open new window:" + e.toString());
 			Alert alert = new Alert(AlertType.ERROR,language.getLanguageBundle().getString("windowError"));
 			alert.showAndWait();
 		}
@@ -88,11 +88,19 @@ public class MainController extends GeneralController {
 	
 	
 	@FXML private void buttonFired(ActionEvent event) {
+		LOGGER.warning("Calling a module which is not implemented");
 		Alert alert = new Alert(AlertType.ERROR,language.getLanguageBundle().getString("notImplemented"));
 		alert.showAndWait();
+		
 	}
 	
 	public void setSettings(Settings settings) {
 		this.settings = settings;
+	}
+	
+	public void setLabels() {
+		basicDNSLabel.setText(language.getLanguageBundle().getString(basicDNSLabel.getId()));
+		multicastDNSLabel.setText(language.getLanguageBundle().getString(multicastDNSLabel.getId()));
+		encryptedDNSLabel.setText(language.getLanguageBundle().getString(encryptedDNSLabel.getId()));
 	}
 }

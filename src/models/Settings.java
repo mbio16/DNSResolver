@@ -8,11 +8,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import javax.swing.filechooser.FileSystemView;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
+import ui.DNSController;
 
 
 
@@ -24,7 +27,7 @@ public class Settings {
 	public static final String DNS_LAST_USED="DNS_LAST_USED";
 	private String filePath;
 	private File file;
-	
+	private static final Logger LOGGER = Logger.getLogger(Settings.class.getName());
 	public Settings() {
 		lastDNSServerUsed = "<ip>";
 		checkIfFileExistsOrCreate();
@@ -51,7 +54,7 @@ public class Settings {
 			setupJsonFile();
 			}
 			catch (Exception e) {
-				System.out.println("Could not write settings file");
+				LOGGER.severe("Could not write to file: \n" + e.toString());
 			}
 		}
 		this.filePath = file.getPath().toString();
@@ -75,7 +78,7 @@ public class Settings {
 			lastDNSServerUsed = (String) jsonObject.get(DNS_LAST_USED);
 			
 		} catch (Exception e) {
-			System.out.println("file could not be parse");
+			LOGGER.severe("Could not parse settings from file: \n" + e.toString());
 		}
 	}
 	
@@ -88,9 +91,8 @@ public class Settings {
 	}
 	
 	public void appIsClossing() {
-		System.out.println("APP is closing");
-		
 		file.delete();
 		checkIfFileExistsOrCreate();
+		LOGGER.info("Settings writen in file");
 	}
 }

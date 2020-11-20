@@ -1,10 +1,283 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.DNSController">
-   <children>
-      <Label layoutX="291.0" layoutY="267.0" text="Stage 2" />
-   </children>
-</AnchorPane>
+<BorderPane prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.DNSController">
+   <top>
+      <MenuBar prefHeight="25.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="actionMenu" mnemonicParsing="false" text="Akce">
+               <items>
+                  <MenuItem fx:id="backMenuItem" mnemonicParsing="false" onAction="#backButtonFirred" text="Zpět" />
+               </items>
+            </Menu>
+          <Menu fx:id="languageMenu" mnemonicParsing="false" text="Jazyk">
+               <items>
+                  <RadioMenuItem fx:id="czechRadioButton" mnemonicParsing="false" onAction="#czechSelected" text="Čeština" />
+                  <RadioMenuItem fx:id="englishRadioButton" mnemonicParsing="false" onAction="#englishSelected" text="English" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane prefHeight="766.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" layoutX="25.0" layoutY="27.0" text="Doménové jméno">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="66.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="12.0" layoutY="18.0" prefHeight="25.0" prefWidth="177.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="25.0" layoutY="129.0" prefHeight="103.0" prefWidth="202.0" text="Protokol síťové vrstvy">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="IPv4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="IPv6" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="25.0" layoutY="351.0" prefHeight="252.0" prefWidth="202.0" text="Záznam">
+               <content>
+                  <GridPane prefHeight="232.0" prefWidth="200.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="0.0" prefWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <CheckBox mnemonicParsing="false" text="AAAA" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="A">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="NS" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="MX" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="SOA" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="CNAME" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="PTR" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="244.0" layoutY="27.0" prefHeight="310.0" prefWidth="284.0" text="DNS server">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="1.1.1.1 (Cloudflare)">
+                           <font>
+                              <Font size="15.0" />
+                           </font></RadioButton>
+                        <RadioButton mnemonicParsing="false" text="8.8.8.8 (Google)" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font></RadioButton>
+                        <RadioButton mnemonicParsing="false" text="193.17.47.1 (CZ.NIC)" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="15.0" />
+                           </font></RadioButton>
+                        <RadioButton mnemonicParsing="false" text="2606:4700:4700::1111 (Cloudflare)" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="15.0" />
+                           </font></RadioButton>
+                        <RadioButton mnemonicParsing="false" text="2001:4860:4860::8888 (Google)" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="15.0" />
+                           </font></RadioButton>
+                        <RadioButton mnemonicParsing="false" text="2001:148f:ffff::1 (CZ.NIC)" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="15.0" />
+                           </font></RadioButton>
+                        <GridPane GridPane.rowIndex="6">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="23.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="239.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <RadioButton mnemonicParsing="false">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </RadioButton>
+                              <TextField disable="true" prefHeight="29.0" prefWidth="233.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="25.0" layoutY="240.0" prefHeight="103.0" prefWidth="202.0" text="Protokol transportní vrstvy">
+               <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="UDP">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="TCP" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="25.0" layoutY="612.0" prefHeight="98.0" prefWidth="202.0" text="DNSSEC">
+               <content>
+                  <GridPane prefHeight="67.0" prefWidth="200.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="0.0" prefWidth="0.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Ano">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Ne" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="25.0" layoutY="719.0" prefHeight="98.0" prefWidth="202.0" text="Druh dotazu">
+               <content>
+                  <GridPane prefHeight="67.0" prefWidth="200.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="0.0" prefWidth="0.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Rekurzivní">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Iterativní" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <Button layoutX="244.0" layoutY="364.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="285.0" text="Odeslat">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

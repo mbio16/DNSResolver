@@ -2,6 +2,8 @@ package application;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
+
 
 public class Language {
 
@@ -12,6 +14,8 @@ public class Language {
 	private Locale locale;
 	private String currentLanguage;
 	
+	
+	private static final Logger LOGGER = Logger.getLogger(Language.class.getName());
 	public Language() {
 		currentLanguage = Language.CZECH;
 	}
@@ -20,6 +24,7 @@ public class Language {
 	currentLanguage = isCzechSelected ? Language.CZECH:Language.ENGLISH;
 	locale = new Locale(currentLanguage);
 	languageBundle = ResourceBundle.getBundle(Language.INTERNATIONAL_BUNDLE_PATH,locale);
+	LOGGER.info("Changing language: " + currentLanguage);
 	}
 	
 	public ResourceBundle getLanguageBundle() {

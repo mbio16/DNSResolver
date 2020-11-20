@@ -24,7 +24,6 @@ public class Main extends Application {
 			this.language.changeLanguageBundle(true);
 		
 			// loading fxml 
-			System.out.println("Openning" + MAIN_STAGE_FXML_FILE);
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_STAGE_FXML_FILE));
 			Stage newStage = new Stage();
 			newStage.setScene(new Scene(loader.load()));
