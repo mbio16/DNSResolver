@@ -166,7 +166,6 @@ public class DNSController extends GeneralController {
 	@FXML
 	public void backButtonFirred(ActionEvent event) {
 		try {
-				System.out.println(MainController.FXML_FILE_NAME);
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(MainController.FXML_FILE_NAME));
 				Stage newStage = new Stage();
 				newStage.setScene(new Scene(loader.load()));
@@ -206,8 +205,11 @@ public class DNSController extends GeneralController {
 	}
 	
 	@FXML public void sendButtonFired(ActionEvent event) {
-		if(otherDNSServerRadioButton.isSelected() && Ip.isIpAddress(dnsServerTextField.getText())) {
+		
+		
+		if(otherDNSServerRadioButton.isSelected() && Ip.isIpValid(dnsServerTextField.getText())) {
 			settings.setLastDNSServerUsed(dnsServerTextField.getText());
+			//System.out.println(Ip.getIpReversed(dnsServerTextField.getText()));
 		}
 	}
 	
