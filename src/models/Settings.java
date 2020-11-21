@@ -16,8 +16,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 
-
-
 public class Settings {
 
 	private String lastDNSServerUsed;
@@ -64,7 +62,7 @@ public class Settings {
 		jsonMap.put(DNS_LAST_USED,lastDNSServerUsed);
 		JSONObject json = new JSONObject(jsonMap);
 		FileWriter fileWriter = new FileWriter(file);
-		fileWriter.write(json.toJSONString());
+		fileWriter.write(json.toString());
 		fileWriter.close();
 	}
 	
