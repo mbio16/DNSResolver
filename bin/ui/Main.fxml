@@ -39,7 +39,10 @@
       </Pane>
       <Pane layoutX="25.0" layoutY="93.0" prefHeight="295.0" prefWidth="150.0" style="-fx-background-color: #7F8688;">
          <children>
-            <Label fx:id="basicDNSLabel" layoutX="7.0" layoutY="6.0" prefHeight="17.0" prefWidth="104.0" text="Základní DNS" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="basicDNSLabel" layoutX="7.0" layoutY="6.0" prefHeight="17.0" prefWidth="104.0" text="Základní DNS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
             <Button fx:id="dnsButton" layoutX="23.0" layoutY="65.0" mnemonicParsing="false" onAction="#definedButtonFired" prefHeight="40.0" prefWidth="72.0" text="DNS">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -56,7 +59,10 @@
       </Pane>
       <Pane layoutX="225.0" layoutY="93.0" prefHeight="295.0" prefWidth="150.0" style="-fx-background-color: #7F8688;">
          <children>
-            <Label fx:id="multicastDNSLabel" layoutX="11.0" layoutY="6.0" prefHeight="17.0" prefWidth="135.0" text="DNS přes multicast" textFill="WHITE" />
+            <Label fx:id="multicastDNSLabel" layoutX="11.0" layoutY="6.0" prefHeight="17.0" prefWidth="135.0" text="DNS přes multicast" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
             <Button fx:id="llmrButton" layoutX="27.0" layoutY="62.0" mnemonicParsing="false" onAction="#buttonFired" prefHeight="40.0" prefWidth="72.0" text="LLMR">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -87,7 +93,10 @@
       </Pane>
       <Pane layoutX="425.0" layoutY="93.0" prefHeight="295.0" prefWidth="150.0" style="-fx-background-color: #7F8688;">
          <children>
-            <Label fx:id="encryptedDNSLabel" layoutX="8.0" layoutY="6.0" prefHeight="17.0" prefWidth="142.0" text="Šifrovaný DNS" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="encryptedDNSLabel" layoutX="8.0" layoutY="6.0" prefHeight="17.0" prefWidth="142.0" text="Šifrovaný DNS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
             <Button fx:id="dohButton" layoutX="26.0" layoutY="62.0" mnemonicParsing="false" onAction="#buttonFired" prefHeight="40.0" prefWidth="72.0" text="DoH">
                <font>
                   <Font name="System Bold" size="15.0" />

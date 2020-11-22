@@ -2,7 +2,6 @@ package ui;
 
 import java.util.logging.Logger;
 
-
 import application.Language;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
@@ -74,7 +74,15 @@ public class DNSController extends GeneralController {
 	@FXML private TitledPane recordTypeTitledPane;
 	@FXML private TitledPane dnsServerTitledPane;
 	@FXML private TitledPane iterativeTitledPane;
+	@FXML private TitledPane queryTitledPane;
+	@FXML private TitledPane responseTitledPane;
 	
+	
+	//labels
+	@FXML private Label responseTimeLabel;
+	@FXML private Label responseTimeValueLabel;
+	@FXML private Label numberOfMessagesLabel;
+	@FXML private Label numberOfMessagesValueLabel;
 	//toogleGroup
 	private ToggleGroup ipToggleGroup;
 	private ToggleGroup transportToggleGroup;
@@ -116,6 +124,8 @@ public class DNSController extends GeneralController {
 	}
 	
 	public void setLabels() {
+		
+		
 		//define group to iterate over it
 		TitledPane titlePaneArray [] = new TitledPane []{domainNameTitledPane,
 				ipTitledPane,
@@ -123,7 +133,9 @@ public class DNSController extends GeneralController {
 				dnssecTitledPane,
 				recordTypeTitledPane,
 				dnsServerTitledPane,
-				iterativeTitledPane};
+				iterativeTitledPane,
+				responseTitledPane,
+				queryTitledPane};
 		
 		//same for radio buttons
 		RadioButton [] radioButtonArray = new RadioButton [] {
@@ -131,6 +143,11 @@ public class DNSController extends GeneralController {
 			dnssecNoRadioButton,
 			iterativeQueryRadioButton,
 			recursiveQueryRadioButton
+		};
+		
+		Label [] labelsArray = new Label [] {
+				responseTimeLabel,
+				numberOfMessagesLabel
 		};
 		
 		//set labels to current language in menu
@@ -144,6 +161,10 @@ public class DNSController extends GeneralController {
 		
 		for (RadioButton radioButton : radioButtonArray) {
 			radioButton.setText(language.getLanguageBundle().getString(radioButton.getId()));
+		}
+		
+		for (Label label : labelsArray) {
+			label.setText(language.getLanguageBundle().getString(label.getId()));
 		}
 		
 		//set sendButton

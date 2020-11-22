@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 import models.Settings;
 import ui.GeneralController;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 
 
 public class Main extends Application {
@@ -14,6 +15,8 @@ public class Main extends Application {
 	private Language language;
 	
 	public static String MAIN_STAGE_FXML_FILE = "/ui/Main.fxml";
+	public static String ICON_URI = "file:icon.png";
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -25,6 +28,7 @@ public class Main extends Application {
 			// loading fxml 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_STAGE_FXML_FILE));
 			Stage newStage = new Stage();
+			newStage.getIcons().add(new Image(ICON_URI));
 			newStage.setScene(new Scene(loader.load()));
 			
 			//pass objects

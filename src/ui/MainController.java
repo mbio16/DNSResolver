@@ -2,6 +2,7 @@ package ui;
 
 import java.util.logging.Logger;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import models.Settings;
@@ -74,6 +76,7 @@ public class MainController extends GeneralController {
 				controller.setLanguage(language);
 				controller.setSettings(settings);
 				newStage.show();
+				newStage.getIcons().add(new Image(Main.ICON_URI));
 				Stage mainStage = (Stage) dnsButton.getScene().getWindow();
 				mainStage.close();
 				controller.setLabels();
