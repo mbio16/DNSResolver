@@ -2,7 +2,7 @@ package ui;
 
 import java.util.logging.Logger;
 
-import application.Language;
+import models.Language;
 import models.Settings;
 
 public class GeneralController {

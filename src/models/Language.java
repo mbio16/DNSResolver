@@ -1,4 +1,4 @@
-package application;
+package models;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -9,7 +9,7 @@ public class Language {
 
 	public static final String CZECH = "cz";
 	public static final String ENGLISH = "en";
-	public static final String INTERNATIONAL_BUNDLE_PATH = "application.Lang";
+	public static final String INTERNATIONAL_BUNDLE_PATH = "models.Lang";
 	private ResourceBundle languageBundle;
 	private Locale locale;
 	private String currentLanguage;
