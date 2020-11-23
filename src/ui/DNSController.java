@@ -21,30 +21,17 @@ import javafx.stage.Stage;
 import models.Ip;
 import models.Language;
 
-public class DNSController extends GeneralController {
+public class DNSController extends MDNSController {
 	
 	public static final String FXML_FILE_NAME="DNS.fxml";
-	//menu items
-	@FXML private Menu actionMenu;
-	@FXML private MenuItem backMenuItem;
-	@FXML private Menu languageMenu;
-	@FXML private RadioMenuItem czechRadioButton;
-	@FXML private RadioMenuItem englishRadioButton;
 	
-	//butons
-	@FXML private Button sendButton;
 	
 	//text fields
-	@FXML private TextField domainNameTextField;
 	@FXML private TextField dnsServerTextField;
 	
 	//radio buttons
-	@FXML private RadioButton ipv4RadioButton;
-	@FXML private RadioButton ipv6RadioButton;
 	@FXML private RadioButton tcpRadioButton;
 	@FXML private RadioButton udpRadioButton;
-	@FXML private RadioButton dnssecYesRadioButton;
-	@FXML private RadioButton dnssecNoRadioButton;
 	@FXML private RadioButton recursiveQueryRadioButton;
 	@FXML private RadioButton iterativeQueryRadioButton;
 	@FXML private RadioButton cloudflareIpv4RadioButton;
@@ -56,36 +43,17 @@ public class DNSController extends GeneralController {
 	@FXML private RadioButton otherDNSServerRadioButton;
 	
 	//checkboxes
-	@FXML private CheckBox aCheckBox;
-	@FXML private CheckBox aaaaCheckBox;
-	@FXML private CheckBox nsCheckBox;
-	@FXML private CheckBox mxCheckBox;
 	@FXML private CheckBox soaCheckBox;
-	@FXML private CheckBox cnameCheckBox;
-	@FXML private CheckBox ptrCheckBox;
 	
 	//titledpane
-	
-	@FXML private TitledPane domainNameTitledPane;
-	@FXML private TitledPane ipTitledPane;
 	@FXML private TitledPane transportTitledPane;
-	@FXML private TitledPane dnssecTitledPane;
-	@FXML private TitledPane recordTypeTitledPane;
 	@FXML private TitledPane dnsServerTitledPane;
 	@FXML private TitledPane iterativeTitledPane;
-	@FXML private TitledPane queryTitledPane;
-	@FXML private TitledPane responseTitledPane;
 	
 	
-	//labels
-	@FXML private Label responseTimeLabel;
-	@FXML private Label responseTimeValueLabel;
-	@FXML private Label numberOfMessagesLabel;
-	@FXML private Label numberOfMessagesValueLabel;
+
 	//toogleGroup
-	private ToggleGroup ipToggleGroup;
 	private ToggleGroup transportToggleGroup;
-	private ToggleGroup dnssecToggleGroup;
 	private ToggleGroup iterativeToggleGroup;
 	private ToggleGroup dnsserverToggleGroup;
 	public DNSController() {
@@ -123,8 +91,6 @@ public class DNSController extends GeneralController {
 	}
 	
 	public void setLabels() {
-		
-		
 		//define group to iterate over it
 		TitledPane titlePaneArray [] = new TitledPane []{domainNameTitledPane,
 				ipTitledPane,
@@ -204,15 +170,6 @@ public class DNSController extends GeneralController {
 		}
 	}
 	
-	@FXML public void czechSelected(ActionEvent event) {
-		language.changeLanguageBundle(true);
-		setLabels();
-	}
-	@FXML public void englishSelected(ActionEvent event) {
-		language.changeLanguageBundle(false);
-		setLabels();
-	}
-	
 	@FXML public void otherDNSServerCheck(ActionEvent event) {
 		
 		if(otherDNSServerRadioButton.isSelected()) {
@@ -224,9 +181,7 @@ public class DNSController extends GeneralController {
 		}
 	}
 	
-	@FXML public void sendButtonFired(ActionEvent event) {
-		
-		
+	@FXML public void sendButtonFired(ActionEvent event) {		
 		if(otherDNSServerRadioButton.isSelected() && Ip.isIpValid(dnsServerTextField.getText())) {
 			settings.setLastDNSServerUsed(dnsServerTextField.getText());
 			//System.out.println(Ip.getIpReversed(dnsServerTextField.getText()));
