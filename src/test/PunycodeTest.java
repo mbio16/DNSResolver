@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import models.Punycode;
 
-class PunycodeTests {
+class PunycodeTest {
 
 	@Test
 	void testToPunycode() {

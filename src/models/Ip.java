@@ -5,6 +5,8 @@ import inet.ipaddr.IPAddressString;
 
 public class Ip {
 	public static final Logger LOGGER = Logger.getLogger(Ip.class.getName());	
+	
+	
 	public static boolean isIPv4Address(String stringAddress) {
 	try {
 	IPAddress ip = new IPAddressString(stringAddress).getAddress();
