@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import models.Ip;
 
-class IpTests {
+class IpTest {
 	
 	
 	@Test void isIpv4_1() {
