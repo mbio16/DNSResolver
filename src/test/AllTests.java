@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @SuiteClasses({
 	IpTest.class,
-	PunycodeTest.class
+	PunycodeTest.class,
+	Domain.class
 })
 public class AllTests {
 	
