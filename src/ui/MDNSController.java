@@ -19,6 +19,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import models.Language;
 
 public class MDNSController extends GeneralController {
 	
@@ -131,7 +132,18 @@ public class MDNSController extends GeneralController {
 		
 		//set sendButton
 		sendButton.setText(language.getLanguageBundle().getString(sendButton.getId()));
+		
+		if (language.getCurrentLanguage().equals(Language.CZECH)) {
+			czechRadioButton.setSelected(true);
+			englishRadioButton.setSelected(false);
+		}
+		else {
+			czechRadioButton.setSelected(false);
+			englishRadioButton.setSelected(true);
+		}
 	}
+	
+	
 	@FXML public void czechSelected(ActionEvent event) {
 		language.changeLanguageBundle(true);
 		setLabels();
