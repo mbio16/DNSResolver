@@ -170,27 +170,27 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <RadioButton fx:id="cloudflareIpv4RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="1.1.1.1 (Cloudflare)">
+                        <RadioButton fx:id="cloudflareIpv4RadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange" text="1.1.1.1 (Cloudflare)">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="googleIpv4RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="8.8.8.8 (Google)" GridPane.rowIndex="1">
+                        <RadioButton fx:id="googleIpv4RadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange" text="8.8.8.8 (Google)" GridPane.rowIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="cznicIpv4RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="193.17.47.1 (CZ.NIC)" GridPane.rowIndex="2">
+                        <RadioButton fx:id="cznicIpv4RadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange" text="193.17.47.1 (CZ.NIC)" GridPane.rowIndex="2">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="cloudflareIpv6RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="2606:4700:4700::1111 (Cloudflare)" GridPane.rowIndex="3">
+                        <RadioButton fx:id="cloudflareIpv6RadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange" text="2606:4700:4700::1111 (Cloudflare)" GridPane.rowIndex="3">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="googleIpv6RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="2001:4860:4860::8888 (Google)" GridPane.rowIndex="4">
+                        <RadioButton fx:id="googleIpv6RadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange" text="2001:4860:4860::8888 (Google)" GridPane.rowIndex="4">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="cznicIpv6RadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="2001:148f:ffff::1 (CZ.NIC)" GridPane.rowIndex="5">
+                        <RadioButton fx:id="cznicIpv6RadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange" text="2001:148f:ffff::1 (CZ.NIC)" GridPane.rowIndex="5">
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
@@ -203,7 +203,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <RadioButton fx:id="otherDNSServerRadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck">
+                              <RadioButton fx:id="otherDNSServerRadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -224,7 +224,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <RadioButton fx:id="savedDNSRadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck">
+                              <RadioButton fx:id="savedDNSRadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -232,7 +232,7 @@
                               <ChoiceBox fx:id="savedDNSChoiceBox" prefHeight="25.0" prefWidth="238.0" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <RadioButton fx:id="systemDNSRadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="System" GridPane.rowIndex="6">
+                        <RadioButton fx:id="systemDNSRadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange" text="System" GridPane.rowIndex="6">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -369,12 +369,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <RadioButton fx:id="domainNameTextFieldRadioButton" mnemonicParsing="false" onAction="#domainNameRadioButtonChanged">
+                        <RadioButton fx:id="domainNameTextFieldRadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton fx:id="domainNameChoiseBoxRadioButton" mnemonicParsing="false" onAction="#domainNameRadioButtonChanged" GridPane.columnIndex="3">
+                        <RadioButton fx:id="domainNameChoiseBoxRadioButton" mnemonicParsing="false" onAction="#onRadioButtonChange" GridPane.columnIndex="3">
                            <font>
                               <Font size="15.0" />
                            </font>

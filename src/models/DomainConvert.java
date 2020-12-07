@@ -3,15 +3,23 @@ package models;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 public class DomainConvert {
-	
+	private static Pattern pDomainNameOnly;
+    private static final String DOMAIN_NAME_PATTERN = "^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$";
+    static {
+        pDomainNameOnly = Pattern.compile(DOMAIN_NAME_PATTERN);
+    }
 	
 	private static Logger LOGGER = Logger.getLogger(DomainConvert.class.getName());
 	
-	public static String encodeDNS(String domain) {
+	public static String encodeDNS(String domain) throws Exception {
 		if (!Charset.forName("US-ASCII").newEncoder().canEncode(domain)) {
 			domain = Punycode.toPunycode(domain);
+		}
+		if(!isValidDomainName(domain)) {
+			throw new Exception("Domain not valid");
 		}
 		String result = "";
 		String splited [] = domain.split("\\.");
@@ -54,4 +62,7 @@ public class DomainConvert {
 		LOGGER.info(result);
 		return result;
 	}
+    public static boolean isValidDomainName(String domainName) {
+        return pDomainNameOnly.matcher(domainName).find();
+    }
 }

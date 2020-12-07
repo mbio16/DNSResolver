@@ -1,4 +1,6 @@
 package models;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.logging.Logger;
 import inet.ipaddr.IPAddress;
 import inet.ipaddr.IPAddressString;
@@ -43,4 +45,30 @@ public class Ip {
 		}
 	}
 	
+	
+	public static String getPrimaryDNSIp() {
+		try {
+			 String [] lineParts = null;
+			 ProcessBuilder builder = new ProcessBuilder("nslookup");
+			        builder.redirectErrorStream(true);
+			        Process p = builder.start();
+			        BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			        String line;
+			        while (true) {
+			            line = r.readLine();
+			            if (line == null) { break; }
+			            if(line.contains("Address:")) {
+			            lineParts = line.split(":");
+			            break;
+			            }
+			        
+			      }
+			        String res = lineParts[1];
+			       res =  res.replaceAll("\\s", ""); 
+			       LOGGER.info("Found primary DNS ip addres");
+			       return res;
+		} catch (Exception e) {
+			return "No primary address";
+		}
+	}
 }

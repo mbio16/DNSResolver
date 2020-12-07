@@ -99,7 +99,9 @@ public class MDNSController extends GeneralController {
 		domainNameToggleGroup = new ToggleGroup();
 		domainNameChoiseBoxRadioButton.setToggleGroup(domainNameToggleGroup);
 		domainNameTextFieldRadioButton.setToggleGroup(domainNameToggleGroup);
-	
+		
+		
+		domainNameRadioButtonChanged(null);
 	}
 	
 	public void setLabels() {	
@@ -151,6 +153,8 @@ public class MDNSController extends GeneralController {
 			czechRadioButton.setSelected(false);
 			englishRadioButton.setSelected(true);
 		}
+		
+		savedDomainNamesChoiseBox.getItems().addAll(settings.getDomainNamesMDNS());
 	}
 	
 	
@@ -193,7 +197,10 @@ public class MDNSController extends GeneralController {
 		}
 	}
 	@FXML public void sendButtonFired(ActionEvent event) {
+		
 	}
+	
+	
 	
 	
 }

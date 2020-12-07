@@ -6,14 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
@@ -162,10 +158,17 @@ public class DNSController extends MDNSController {
 			czechRadioButton.setSelected(false);
 			englishRadioButton.setSelected(true);
 		}
+		
+		//set system dns
+		systemDNSRadioButton.setText(Ip.getPrimaryDNSIp());
+		
+		//permform radio buttons actions
+		onRadioButtonChange(null);
 	}
 	
 	public void loadDataFromSettings(){
-		dnsServerTextField.setText(settings.getLastDNSServerUsed());
+		savedDomainNamesChoiseBox.getItems().addAll(settings.getDomainNamesDNS());
+		savedDNSChoiceBox.getItems().addAll(settings.getDnsServers());
 	}
 	
 	@FXML
@@ -189,7 +192,13 @@ public class DNSController extends MDNSController {
 		}
 	}
 	
-	@FXML public void otherDNSServerCheck(ActionEvent event) {
+	@FXML
+	public void onRadioButtonChange(ActionEvent event) {
+		otherDNSServerCheck();
+		savedDNSServerCheck();
+		domainNameRadioButtonChanged(event);
+	}
+	private void otherDNSServerCheck() {
 		
 		if(otherDNSServerRadioButton.isSelected()) {
 			LOGGER.info("Other DNS server is enabled");
@@ -199,7 +208,7 @@ public class DNSController extends MDNSController {
 			LOGGER.info("Other DNS server is not enabled");
 			dnsServerTextField.setDisable(true);
 		}
-		savedDNSServerCheck();
+		
 	}
 	
 	private void savedDNSServerCheck() {
@@ -215,8 +224,11 @@ public class DNSController extends MDNSController {
 	
 	@FXML public void sendButtonFired(ActionEvent event) {		
 		if(otherDNSServerRadioButton.isSelected() && Ip.isIpValid(dnsServerTextField.getText())) {
-			settings.setLastDNSServerUsed(dnsServerTextField.getText());
+			settings.addDNSServer(dnsServerTextField.getText());
 			//System.out.println(Ip.getIpReversed(dnsServerTextField.getText()));
+		}
+		if(domainNameTextFieldRadioButton.isSelected()) {
+			settings.addDNSDomain(domainNameTextField.getText());
 		}
 	}
 	
