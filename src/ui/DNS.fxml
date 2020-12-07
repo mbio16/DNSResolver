@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -40,18 +41,6 @@
    <center>
       <AnchorPane prefHeight="766.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
          <children>
-            <TitledPane fx:id="domainNameTitledPane" animated="false" layoutX="25.0" layoutY="27.0" text="Doménové jméno">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="66.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="domainNameTextField" layoutX="12.0" layoutY="18.0" prefHeight="25.0" prefWidth="177.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font></TextField>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </TitledPane>
             <TitledPane fx:id="ipTitledPane" animated="false" layoutX="25.0" layoutY="129.0" prefHeight="103.0" prefWidth="202.0" text="Protokol síťové vrstvy">
                <content>
                   <GridPane>
@@ -77,7 +66,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane fx:id="recordTypeTitledPane" animated="false" layoutX="25.0" layoutY="351.0" prefHeight="252.0" prefWidth="202.0" text="Záznam">
+            <TitledPane fx:id="recordTypeTitledPane" animated="false" layoutX="25.0" layoutY="351.0" prefHeight="422.0" prefWidth="202.0" text="Záznam">
                <content>
                   <GridPane prefHeight="232.0" prefWidth="200.0">
                     <columnConstraints>
@@ -88,6 +77,11 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -129,11 +123,36 @@
                               <Font size="15.0" />
                            </font>
                         </CheckBox>
+                        <CheckBox fx:id="dnskeyCheckBox" mnemonicParsing="false" text="DNSKEY" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="dsCheckBox" mnemonicParsing="false" text="DS" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="caaCheckBox" mnemonicParsing="false" text="CAA" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="txtCheckBox" mnemonicParsing="false" text="TXT" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="certCheckBox" mnemonicParsing="false" text="CERT" GridPane.rowIndex="11">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </CheckBox>
                      </children>
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane fx:id="dnsServerTitledPane" animated="false" layoutX="244.0" layoutY="27.0" prefHeight="310.0" prefWidth="284.0" text="DNS server">
+            <TitledPane fx:id="dnsServerTitledPane" animated="false" layoutX="245.0" layoutY="351.0" prefHeight="360.0" prefWidth="284.0" text="DNS server">
                <content>
                   <GridPane>
                     <columnConstraints>
@@ -143,6 +162,8 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -173,7 +194,7 @@
                            <font>
                               <Font size="15.0" />
                            </font></RadioButton>
-                        <GridPane GridPane.rowIndex="6">
+                        <GridPane GridPane.rowIndex="8">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="23.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="239.0" />
@@ -194,6 +215,28 @@
                               </TextField>
                            </children>
                         </GridPane>
+                        <GridPane GridPane.rowIndex="7">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="23.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="239.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <RadioButton fx:id="savedDNSRadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </RadioButton>
+                              <ChoiceBox fx:id="savedDNSChoiceBox" prefHeight="25.0" prefWidth="238.0" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                        <RadioButton fx:id="systemDNSRadioButton" mnemonicParsing="false" onAction="#otherDNSServerCheck" text="System" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
                      </children>
                   </GridPane>
                </content>
@@ -223,7 +266,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane fx:id="dnssecTitledPane" animated="false" layoutX="25.0" layoutY="612.0" prefHeight="98.0" prefWidth="202.0" text="DNSSEC">
+            <TitledPane fx:id="dnssecTitledPane" animated="false" layoutX="244.0" layoutY="129.0" prefHeight="104.0" prefWidth="205.0" text="DNSSEC">
                <content>
                   <GridPane prefHeight="67.0" prefWidth="200.0">
                      <columnConstraints>
@@ -249,7 +292,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane fx:id="iterativeTitledPane" animated="false" layoutX="25.0" layoutY="719.0" prefHeight="98.0" prefWidth="202.0" text="Druh dotazu">
+            <TitledPane fx:id="iterativeTitledPane" animated="false" layoutX="246.0" layoutY="243.0" prefHeight="100.0" prefWidth="206.0" text="Druh dotazu">
                <content>
                   <GridPane prefHeight="67.0" prefWidth="200.0">
                      <columnConstraints>
@@ -275,7 +318,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <Button fx:id="sendButton" layoutX="244.0" layoutY="364.0" mnemonicParsing="false" onAction="#sendButtonFired" prefHeight="88.0" prefWidth="285.0" text="Odeslat">
+            <Button fx:id="sendButton" layoutX="244.0" layoutY="721.0" mnemonicParsing="false" onAction="#sendButtonFired" prefHeight="50.0" prefWidth="285.0" text="Odeslat">
                <font>
                   <Font size="25.0" />
                </font>
@@ -311,6 +354,37 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <TitledPane fx:id="domainNameTitledPane" animated="false" layoutX="25.0" layoutY="27.0" prefHeight="92.0" prefWidth="503.0" text="Doménové jméno">
+               <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="7.0" prefWidth="32.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="10.0" prefWidth="202.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="0.0" prefWidth="23.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="9.0" prefWidth="27.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="20.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="234.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <RadioButton fx:id="domainNameTextFieldRadioButton" mnemonicParsing="false" onAction="#domainNameRadioButtonChanged">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="domainNameChoiseBoxRadioButton" mnemonicParsing="false" onAction="#domainNameRadioButtonChanged" GridPane.columnIndex="3">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                        <TextField fx:id="domainNameTextField" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="savedDomainNamesChoiseBox" prefHeight="25.0" prefWidth="212.0" GridPane.columnIndex="5" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
          </children>
       </AnchorPane>
    </center>

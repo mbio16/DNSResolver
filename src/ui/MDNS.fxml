@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -167,7 +168,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="numberOfMessagesLabel" layoutX="647.0" layoutY="758.0" text="Počet opakování zpráv:">
+            <Label fx:id="numberOfMessagesLabel" layoutX="647.0" layoutY="758.0" text="Počet pokusů:">
                <font>
                   <Font size="15.0" />
                </font>
@@ -177,21 +178,33 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TitledPane fx:id="domainNameTitledPane" animated="false" layoutX="25.0" layoutY="20.0" prefHeight="103.0" prefWidth="202.0" text="Doménové jméno">
+            <TitledPane fx:id="domainNameTitledPane" animated="false" layoutX="25.0" layoutY="27.0" prefHeight="92.0" prefWidth="503.0" text="Doménové jméno">
                <content>
                   <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="7.0" prefWidth="32.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="10.0" prefWidth="202.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="0.0" prefWidth="23.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="9.0" prefWidth="27.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="20.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="234.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <TextField fx:id="domainNameTextField">
+                        <RadioButton fx:id="domainNameTextFieldRadioButton" mnemonicParsing="false" onAction="#domainNameRadioButtonChanged">
                            <font>
                               <Font size="15.0" />
                            </font>
-                        </TextField>
+                        </RadioButton>
+                        <RadioButton fx:id="domainNameChoiseBoxRadioButton" mnemonicParsing="false" onAction="#domainNameRadioButtonChanged" GridPane.columnIndex="3">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                        <TextField fx:id="domainNameTextField" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="savedDomainNamesChoiseBox" prefHeight="25.0" prefWidth="212.0" GridPane.columnIndex="5" />
                      </children>
                   </GridPane>
                </content>

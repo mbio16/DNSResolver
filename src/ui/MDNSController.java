@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -44,6 +45,8 @@ public class MDNSController extends GeneralController {
 	@FXML protected RadioButton ipv6RadioButton;
 	@FXML protected RadioButton dnssecYesRadioButton;
 	@FXML protected RadioButton dnssecNoRadioButton;
+	@FXML protected RadioButton domainNameTextFieldRadioButton;
+	@FXML protected RadioButton domainNameChoiseBoxRadioButton;
 	
 	//checkboxes
 	@FXML protected CheckBox aCheckBox;
@@ -59,7 +62,6 @@ public class MDNSController extends GeneralController {
 	@FXML protected TitledPane ipTitledPane;
 	@FXML protected TitledPane dnssecTitledPane;
 	@FXML protected TitledPane recordTypeTitledPane;
-	@FXML protected TitledPane dnsServerTitledPane;
 	@FXML protected TitledPane queryTitledPane;
 	@FXML protected TitledPane responseTitledPane;
 	
@@ -74,6 +76,11 @@ public class MDNSController extends GeneralController {
 	//toogleGroup
 	protected ToggleGroup ipToggleGroup;
 	protected ToggleGroup dnssecToggleGroup;
+	protected ToggleGroup domainNameToggleGroup;
+	
+	
+	@FXML protected ChoiceBox<String> savedDomainNamesChoiseBox;
+	
 	
 	public MDNSController() {
 		super();
@@ -89,6 +96,9 @@ public class MDNSController extends GeneralController {
 		dnssecYesRadioButton.setToggleGroup(dnssecToggleGroup);
 		dnssecNoRadioButton.setToggleGroup(dnssecToggleGroup);
 		
+		domainNameToggleGroup = new ToggleGroup();
+		domainNameChoiseBoxRadioButton.setToggleGroup(domainNameToggleGroup);
+		domainNameTextFieldRadioButton.setToggleGroup(domainNameToggleGroup);
 	
 	}
 	
@@ -172,7 +182,16 @@ public class MDNSController extends GeneralController {
 			alert.showAndWait();
 		}
 	}
-	
+	@FXML public void domainNameRadioButtonChanged(ActionEvent event) {
+		if(domainNameChoiseBoxRadioButton.isSelected()) {
+			domainNameTextField.setDisable(true);
+			savedDomainNamesChoiseBox.setDisable(false);
+		}
+		else {	
+			savedDomainNamesChoiseBox.setDisable(true);
+			domainNameTextField.setDisable(false);
+		}
+	}
 	@FXML public void sendButtonFired(ActionEvent event) {
 	}
 	

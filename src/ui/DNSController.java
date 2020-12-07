@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -41,9 +42,16 @@ public class DNSController extends MDNSController {
 	@FXML private RadioButton googleIpv6RadioButton;
 	@FXML private RadioButton cznicIpv6RadioButton;
 	@FXML private RadioButton otherDNSServerRadioButton;
+	@FXML private RadioButton systemDNSRadioButton;
+	@FXML private RadioButton savedDNSRadioButton;
 	
 	//checkboxes
 	@FXML private CheckBox soaCheckBox;
+	@FXML private CheckBox dnskeyCheckBox;
+	@FXML private CheckBox dsCheckBox;
+	@FXML private CheckBox caaCheckBox;
+	@FXML private CheckBox txtCheckBox;
+	@FXML private CheckBox certCheckBox;
 	
 	//titledpane
 	@FXML private TitledPane transportTitledPane;
@@ -56,6 +64,10 @@ public class DNSController extends MDNSController {
 	private ToggleGroup transportToggleGroup;
 	private ToggleGroup iterativeToggleGroup;
 	private ToggleGroup dnsserverToggleGroup;
+	
+	// choice box
+	@FXML private ChoiceBox<String> savedDNSChoiceBox;
+ 
 	public DNSController() {
 		super();
 		LOGGER = Logger.getLogger(DNSController.class.getName());		
@@ -87,6 +99,13 @@ public class DNSController extends MDNSController {
 		cznicIpv4RadioButton.setToggleGroup(dnsserverToggleGroup);
 		cznicIpv6RadioButton.setToggleGroup(dnsserverToggleGroup);
 		otherDNSServerRadioButton.setToggleGroup(dnsserverToggleGroup);
+		savedDNSRadioButton.setToggleGroup(dnsserverToggleGroup);
+		systemDNSRadioButton.setToggleGroup(dnsserverToggleGroup);
+		
+		domainNameToggleGroup = new ToggleGroup();
+		domainNameChoiseBoxRadioButton.setToggleGroup(domainNameToggleGroup);
+		domainNameTextFieldRadioButton.setToggleGroup(domainNameToggleGroup);
+
 	
 	}
 	
@@ -177,7 +196,20 @@ public class DNSController extends MDNSController {
 			dnsServerTextField.setDisable(false);
 		}
 		else {
+			LOGGER.info("Other DNS server is not enabled");
 			dnsServerTextField.setDisable(true);
+		}
+		savedDNSServerCheck();
+	}
+	
+	private void savedDNSServerCheck() {
+		if (savedDNSRadioButton.isSelected()) {
+			LOGGER.info("Saved DNS server is enabled");
+			savedDNSChoiceBox.setDisable(false);
+		}
+		else {
+			LOGGER.info("Saved DNS server is not enabled");
+			savedDNSChoiceBox.setDisable(true);
 		}
 	}
 	
